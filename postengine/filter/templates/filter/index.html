@@ -1,0 +1,444 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <!-- https://icons.getbootstrap.com/ -->
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.js"></script>
+
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+		<link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css"/>
+    <!-- <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script> -->
+
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+    <title>!!!</title>
+
+  </head>
+
+	<body>
+<!-- Навигация -->
+  <nav  class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a href="#" class="navbar-brand"><img src="{% static 'img/logo_am_star.svg' %}" width="32"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle = "collapse" data-bs-target = "#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>  
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-toggles svg-lg" viewBox="0 0 16 16">
+                <path d="M4.5 9a3.5 3.5 0 1 0 0 7h7a3.5 3.5 0 1 0 0-7h-7zm7 6a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm-7-14a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm2.45 0A3.49 3.49 0 0 1 8 3.5 3.49 3.49 0 0 1 6.95 6h4.55a2.5 2.5 0 0 0 0-5H6.95zM4.5 0h7a3.5 3.5 0 1 1 0 7h-7a3.5 3.5 0 1 1 0-7z"/>
+              </svg>
+               Форма
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-week-fill svg-lg" viewBox="0 0 16 16">
+                <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM9.5 7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm3 0h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zM2 10.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+              </svg>
+               МедиаПлан
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill svg-lg" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+              </svg>
+               GoogleMap
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-inboxes-fill svg-lg" viewBox="0 0 16 16">
+                <path d="M4.98 1a.5.5 0 0 0-.39.188L1.54 5H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0A.5.5 0 0 1 10 5h4.46l-3.05-3.812A.5.5 0 0 0 11.02 1H4.98zM3.81.563A1.5 1.5 0 0 1 4.98 0h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1 .106.374l-.39 3.124A1.5 1.5 0 0 1 14.117 10H1.883A1.5 1.5 0 0 1 .394 8.686l-.39-3.124a.5.5 0 0 1 .106-.374L3.81.563zM.125 11.17A.5.5 0 0 1 .5 11H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0 .5.5 0 0 1 .5-.5h5.5a.5.5 0 0 1 .496.562l-.39 3.124A1.5 1.5 0 0 1 14.117 16H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .121-.393z"/>
+              </svg>
+               Адреса ОПС
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>  
+  </nav>
+
+<!-- Верх -->
+	<div class="container-fluid  mb-3 py-1 shadow bg-body rounded sticky-top justify-content-center">
+	  <div class="row">
+		<!-- Верх слева -->
+	    <div class="col-md-6 shadow bg-body rounded">
+        <div class="input-group mb-2"> 
+          <span class="input-group-text primаry">Клиент</span>
+          <input type="text" class="form-control" placeholder="Наименование клиента" aria-describedby="customer" id="tbxCustomer">
+        </div>
+        <div class="input-group mb-2">
+          <span class="input-group-text">Бренд </span>  
+          <input type="text" class="form-control" placeholder="Название бренда" aria-describedby="brand"  id="tbxBrand">
+        </div>
+        <div class="row g-2 mb-3">
+          <div class="col-md-3">
+            <div class="form-floating mb-1">
+              <input type="text" class="form-control" id="dtStartDay" disabled>
+              <label for="dtStartDay" class="fs-08">Начало РК</label>
+            </div>
+            <div class="form-floating mb-1">
+              <input type="text" class="form-control" id="dtFinishDay" disabled>
+              <label for="dtFinishDay" class="fs-08">Окончание РК</label>
+            </div>            
+          </div>     
+	        <div class="col-md-9">
+            <div class="input-group mb-1">
+              <span class="input-group-text">Период</span>
+              <input type="date" aria-label="first day" class="form-control" id="fDate">
+              <input type="date" aria-label="last day" class="form-control" id="lDate">
+              <button class="btn btn-outline-primary" id="addFlight">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-plus-fill svg-lg" viewBox="0 0 16 16">
+                  <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM8.5 8.5V10H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V11H6a.5.5 0 0 1 0-1h1.5V8.5a.5.5 0 0 1 1 0z"/>
+                </svg>
+              </button>          
+            </div>
+          <!-- Месяцы -->
+            <div class="btn-toolbar font-monospace  mt-2 justify-content-between">
+              <button type="button" class="btn btn-sm btn-outline-secondary month" data-value="1">янв</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary month" data-value="2">фев</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary month" data-value="3">мар</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary month" data-value="4">апр</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary month" data-value="5">май</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary month" data-value="6">июн</button>            
+              <button type="button" class="btn btn-sm btn-outline-secondary month" data-value="7">июл</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary month" data-value="8">авг</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary month" data-value="9">сен</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary month" data-value="10">окт</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary month" data-value="11">ноя</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary month" data-value="12">дек</button>
+            </div>         
+          </div>
+		    </div>
+			</div>
+
+		<!-- Верх центр -->
+		  <div class="col-md-2 shadow bg-body rounded">
+		  	<div class="d-flex flex-column w-100"> 		  	
+		  		<small class="text-muted text-center">
+		  			<span>
+		  				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-range-fill" viewBox="0 0 16 16">
+		  					<path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 7V5H0v5h5a1 1 0 1 1 0 2H0v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9h-6a1 1 0 1 1 0-2h6z"/>
+		  				</svg>
+		  			</span> Флайты</small>
+					<div class="table-flight">
+						<table class="table table-sm table-hover fs-09" id="flightTable">
+							<thead>
+							</thead>
+							<tbody id="flightBody">
+							</tbody>
+						</table>
+					</div>
+				</div>
+	    </div>		
+		
+    <!-- Хронометражи -->
+			<div class="col-md-1 shadow bg-body rounded">
+				<small class="text-muted text-center">
+					<span class="" id="blockChron">
+					  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
+					    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
+					  </svg>
+					</span> РИМ в блоке
+				</small> 
+  			<div class="d-grid gap-1 pt-1" name="spotInBlock">
+          <select class="form-select fs-09" aria-label="v1">
+            <option selected> - </option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15" selected>15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="35">35</option>
+            <option value="40">40</option>
+            <option value="45">45</option>
+            <option value="50">50</option>
+            <option value="55">55</option>
+            <option value="60">60</option>
+          </select>    
+          <select class="form-select fs-09" aria-label="v2">
+            <option selected> - </option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="35">35</option>
+            <option value="40">40</option>
+            <option value="45">45</option>
+            <option value="50">50</option>
+            <option value="55">55</option>
+            <option value="60">60</option>
+          </select>    
+          <select class="form-select fs-09" aria-label="v3">
+            <option selected> - </option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="35">35</option>
+            <option value="40">40</option>
+            <option value="45">45</option>
+            <option value="50">50</option>
+            <option value="55">55</option>
+            <option value="60">60</option>
+          </select>    
+          <select class="form-select fs-09" aria-label="v4">
+            <option selected> - </option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="35">35</option>
+            <option value="40">40</option>
+            <option value="45">45</option>
+            <option value="50">50</option>
+            <option value="55">55</option>
+            <option value="60">60</option>
+          </select>          
+          <select class="form-select fs-09" aria-label="v5">
+            <option selected> - </option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="35">35</option>
+            <option value="40">40</option>
+            <option value="45">45</option>
+            <option value="50">50</option>
+            <option value="55">55</option>
+            <option value="60">60</option>
+          </select>
+        </div> 
+      </div>	  
+	  
+    <!-- Верх справа -->
+    	<div class="col-md-2"> 
+        <div class="row g-2">
+				  <div class="form-check form-switch">
+				    <input class="form-check-input" type="checkbox" id="switchAdAg" style = "height:20px; width:35px">
+				    <label class="form-check-label" for="flexSwitchCheckDefault">10% скидка для РА</label>
+				  </div>
+				  <div class="form-check form-switch">
+				    <input class="form-check-input" type="checkbox" id="switchWelcome" style = "height:20px; width:35px" checked>
+				    <label class="form-check-label" for="flexSwitchCheckChecked">5% скидка новому клиенту</label>
+				  </div>
+				  <div class="input-group input-group" style = "padding-top: 0.5rem;">
+				    <span class="input-group-text">Доп. скидка</span>
+						<input type="number" step="0.001" class="form-control" style = "width:50px">
+						<span class="input-group-text">%</span>
+				  </div>
+          <button type="button" class="btn btn-sm btn-outline-success test-btn" >TEST</button>
+        </div>
+	    </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-sm btn-outline-danger mt-2" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+            <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+          </svg>
+        </button>        
+      </div> 
+		</div>
+	</div>
+
+
+
+{% block content %}
+<!-- Центр -->
+	<div class="container-fluid pt-1">
+		<div class="row">
+			<div class="col-md-10 shadow bg-body rounded">
+				<div class="container-fluid py-1">
+
+	<!-- Пять блоков в центре-->
+          <form method = 'GET'>
+					<div class="row row-col-5 justify-content-center">
+						<div class="col-auto">
+							<h6 class="text-muted my-2">Сеть</h6>
+							<div class="card card-cover shadow">
+								<select class="form-select" size=8 multiple aria-label="zone" name ="zone">
+									{% for nw in Networks %}
+										<option data-value="{{nw.network}}">{{nw.network}}</option>
+		              {% endfor %}   
+								</select>		
+							</div> 
+						</div>	
+						<div class="col-auto">
+							<h6 class="text-muted my-2">Регион</h6>
+							<div class="card card-cover shadow">
+					      <select class="form-select" size=8 multiple aria-label="region" name ="region">
+									{% for rg in Regions %}                    
+                    {% if zone.nw_selected == rg.network %}
+  										<option data-value="{{rg.region}}">{{rg.region}}</option>
+                    {% endif %} 
+                  {% endfor %} 
+					      </select>	
+							</div> 		
+						</div>	
+						<div class="col-auto">
+							<h6 class="text-muted my-2">Город</h6>
+							<div class="card card-cover shadow">
+					      <select class="form-select" size=8 multiple aria-label="city">
+                  {% for ct in Cities %}
+                    <option data-value="{{ct.city}}">{{ct.city}}</option>
+                  {% endfor %} 
+					      </select>	
+							</div> 	
+						</div>	
+						<div class="col-auto">
+							<h6 class="text-muted my-2">Округ</h6>
+							<div class="card card-cover shadow">
+					      <select class="form-select" size=8 multiple aria-label="area">
+                  {% for ar in Areas %}
+                    <option data-value="{{ar.area}}">{{ar.area}}</option>
+                  {% endfor %}
+					      </select>	
+							</div> 		
+						</div>	
+						<div class="col-auto">
+							<h6 class="text-muted my-2">Район</h6>
+							<div class="card card-cover shadow">
+					      <select class="form-select" size=8 multiple aria-label="distriсt">
+                  {% for dc in Districts %}
+                    <option data-value="{{dc.district}}">{{dc.district}}</option>
+                  {% endfor %}
+					      </select>
+							</div> 		
+						</div>	
+					</div>
+          </form>
+	<!-- Таблица с данными -->
+					<div class="row justify-content-center">
+						<div class="album table-responsive">
+		          <table class="table table-striped fs-09" id="dataTable">
+		            <thead>
+		              <tr>
+		                <th>Индекс</th>
+		                <th>Сеть</th>
+		                <th>Регион</th>
+		                <th>Город</th>
+		                <th>Адрес</th>
+		                <th>Экраны</th>
+		                <th>График</th>
+		                <th>Reach</th>
+		              </tr>
+		            </thead>
+		            <tbody id="dataTableBody">		              
+		              {% for dt in Addresses %}
+		              <tr>		              	
+			              <td>{{dt.post_index}}</td>
+			              <td>{{dt.network}}</td>		              
+			              <td>{{dt.region}}</td>
+										<td>{{dt.city}}</td>
+										<td>{{dt.address}}</td>
+										<td>{{dt.screen_qnty}}</td>
+										<td>{{dt.workdays}}</td>
+										<td>{{dt.reach}}</td>
+		              </tr>
+		              {% endfor %}
+		            </tbody>
+		            <tfoot>
+		              <tr>
+		                <th>Индекс</th>
+		                <th>Сеть</th>
+		                <th>Регион</th>
+		                <th>Город</th>
+		                <th>Адрес</th>
+		                <th>Экраны</th>
+		                <th>График</th>
+		                <th>Reach</th>
+		              </tr>
+		            </tfoot>
+		          </table>
+		        </div>
+					</div>				
+				</div>
+			</div>
+{% endblock %}
+
+			<div class="col-md-2 shadow bg-body rounded">
+				<div class="d-flex flex-column w-100">
+
+	<!-- Кнопки -->
+					<div class="d-grid gap-2 pt-3">						            
+						<button type="button" class="btn btn-outline-danger" id="clearRows">Очистить</button>
+            <button type="button" class="btn btn-outline-secondary" id="deleteRow">Удалить</button>					
+            <button type="button" class="btn btn-outline-primary" id="addRows">Добавить всё</button>
+					</div>
+					<br>
+					<small class="text-muted text-center">Адресная программа
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-expand svg-sx btn-sort filter-sort" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>
+						</svg>
+					</small>
+
+	<!-- Адресная программа (Add jQuery click row #dataTable) -->
+					<div class="table-wrapper">
+						<table class="table table-sm table-hover fs-09" id="dataFilterTable">
+							<thead>
+							</thead>
+							<tbody id="dataFilterBody">                
+							</tbody>
+						</table>
+					</div>
+					<div>
+						<hr class="dropdown-divider" style="color:grey" />
+						<p class="text-muted pb-2 ps-4" id="countOPS"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<br>
+
+
+<!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+<!--     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script> -->
+
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+    <script src = "{% static 'script/script.js' %}"></script>
+
+
+
+
+  </body>
+</html>
